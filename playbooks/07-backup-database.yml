@@ -1,0 +1,42 @@
+---
+- name: MySQL Database Backup
+  hosts: all
+  become: yes
+
+  vars:
+    mysql_user: root
+    mysql_password: rootpassword
+    backup_path: "{{ backup_dir }}/mysql"
+
+  vars_files:
+    - ../group_vars/all.yml
+
+  tasks:
+
+    - name: Check if MySQL is installed
+      command: which mysqld
+      register: mysql_check
+      ignore_errors: yes
+
+    - name: Install MySQL client
+      apt:
+        name: mysql-client
+        state: present
+      when: mysql_check.rc == 0
+
+    - name: Create MySQL backup directory
+      file:
+        path: "{{ backup_path }}"
+        state: directory
+        mode: '0700'
+      when: mysql_check.rc == 0
+
+    - name: Backup all databases
+      shell: >
+        mysqldump -u {{ mysql_user }}
+        -p{{ mysql_password }}
+        --all-databases
+        > {{ backup_path }}/all-databases.sql
+      when: mysql_check.rc == 0
+      ignore_errors: yes
+

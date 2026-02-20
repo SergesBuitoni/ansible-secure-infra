@@ -1,0 +1,25 @@
+---
+- name: System Monitoring
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Install monitoring tools
+      apt:
+        name:
+          - htop
+          - sysstat
+          - iotop
+        state: present
+
+    - name: Enable sysstat
+      lineinfile:
+        path: /etc/default/sysstat
+        regexp: '^ENABLED='
+        line: 'ENABLED="true"'
+
+    - name: Restart sysstat
+      service:
+        name: sysstat
+        state: restarted
+

@@ -1,0 +1,16 @@
+---
+- name: User Management
+  hosts: all
+  become: yes
+
+  vars_files:
+    - ../group_vars/all.yml
+
+  tasks:
+    - name: Create admin users
+      user:
+        name: "{{ item }}"
+        groups: sudo
+        shell: /bin/bash
+        create_home: yes
+      loop: "{{ users }}"

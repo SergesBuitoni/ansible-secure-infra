@@ -1,0 +1,34 @@
+---
+- name: Install and Configure Fail2Ban
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Install fail2ban
+      apt:
+        name: fail2ban
+        state: present
+
+    - name: Enable fail2ban
+      service:
+        name: fail2ban
+        enabled: yes
+        state: started
+
+    - name: Configure SSH jail
+      copy:
+        dest: /etc/fail2ban/jail.local
+        content: |
+          [sshd]
+          enabled = true
+          port = ssh
+          filter = sshd
+          logpath = /var/log/auth.log
+          maxretry = 5
+          bantime = 1h
+
+    - name: Restart fail2ban
+      service:
+        name: fail2ban
+        state: restarted
+

@@ -1,0 +1,7 @@
+users:
+  - joseph
+  - devops
+
+backup_dir: /backup
+ssh_port: 22
+

@@ -1,0 +1,24 @@
+---
+- name: File Backup
+  hosts: all
+  become: yes
+
+  vars_files:
+    - ../group_vars/all.yml
+
+  tasks:
+    - name: Install rsync
+      apt:
+        name: rsync
+        state: present
+
+    - name: Create backup directory
+      file:
+        path: "{{ backup_dir }}"
+        state: directory
+        mode: '0755'
+
+    - name: Backup /etc directory
+      synchronize:
+        src: /etc
+        dest: "{{ backup_dir }}/etc"

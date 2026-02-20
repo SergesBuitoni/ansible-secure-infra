@@ -1,0 +1,27 @@
+---
+- name: Kernel Hardening
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Enable reverse path filtering
+      sysctl:
+        name: net.ipv4.conf.all.rp_filter
+        value: '1'
+        state: present
+        reload: yes
+
+    - name: Disable ICMP redirects
+      sysctl:
+        name: net.ipv4.conf.all.accept_redirects
+        value: '0'
+        state: present
+        reload: yes
+
+    - name: Enable SYN cookies
+      sysctl:
+        name: net.ipv4.tcp_syncookies
+        value: '1'
+        state: present
+        reload: yes
+

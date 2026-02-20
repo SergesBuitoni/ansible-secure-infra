@@ -1,0 +1,19 @@
+---
+- name: Disable Unnecessary Services
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Stop and disable avahi-daemon
+      service:
+        name: avahi-daemon
+        state: stopped
+        enabled: no
+      ignore_errors: yes
+
+    - name: Stop and disable cups
+      service:
+        name: cups
+        state: stopped
+        enabled: no
+      ignore_errors: yes

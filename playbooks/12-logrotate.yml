@@ -1,0 +1,23 @@
+---
+- name: Log Management
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Install logrotate
+      apt:
+        name: logrotate
+        state: present
+
+    - name: Configure custom logrotate
+      copy:
+        dest: /etc/logrotate.d/custom
+        content: |
+          /var/log/*.log {
+              weekly
+              rotate 4
+              compress
+              missingok
+              notifempty
+          }
+

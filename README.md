@@ -104,7 +104,6 @@ Sauvegarde des données
 Supervision des performances
 
 Déploiement de conteneurs
-
 Renforcement de la sécurité réseau
 
 Gestion centralisée des logs

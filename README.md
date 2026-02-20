@@ -70,14 +70,15 @@ ansible-secure-infra/
 
 ## 🚀 Installation et utilisation
 
-### 1. Cloner le dépôt
-
+1.Cloner le dépôt
 ```bash
 git clone https://github.com/SergesBuitoni/ansible-secure-infra.git
 cd ansible-secure-infra
+
 2. Installer Ansible
 sudo apt update
 sudo apt install ansible -y
+
 3. Lancer le déploiement complet
 ansible-playbook playbooks/site.yml --ask-become-pass
 Cette commande configure automatiquement l’ensemble de l’infrastructure.

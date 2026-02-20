@@ -86,13 +86,13 @@ Cette commande configure automatiquement l’ensemble de l’infrastructure.
 ## 📸 Captures d’écran
 
 ### Déploiement Ansible
-![Déploiement Ansible](screenshots/ansible.png)
+![Déploiement Ansible](screenshots/Ansible.png)
 
 ### Supervision système (htop)
-![Monitoring](screenshots/htop.png)
+![Monitoring](screenshots/Htop.png)
 
 ### Test Docker
-![Docker](screenshots/docker.png)
+![Docker](screenshots/Docker.png)
 
 ✅ Fonctionnalités principales
 Sécurisation complète du serveur

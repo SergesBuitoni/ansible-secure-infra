@@ -83,12 +83,16 @@ sudo apt install ansible -y
 ansible-playbook playbooks/site.yml --ask-become-pass
 Cette commande configure automatiquement l’ensemble de l’infrastructure.
 
-📸 Captures d’écran
-Déploiement Ansible
+## 📸 Captures d’écran
 
-Supervision système (htop)
+### Déploiement Ansible
+![Déploiement Ansible](screenshots/ansible.png)
 
-Test Docker
+### Supervision système (htop)
+![Monitoring](screenshots/htop.png)
+
+### Test Docker
+![Docker](screenshots/docker.png)
 
 ✅ Fonctionnalités principales
 Sécurisation complète du serveur

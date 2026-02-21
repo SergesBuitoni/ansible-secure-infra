@@ -93,6 +93,31 @@ Cette commande configure automatiquement l’ensemble de l’infrastructure.
 
 ### Test Docker
 ![Docker](screenshots/Docker.png)
+---
+
+## 🎯 Objectif du projet
+
+Ce projet vise à automatiser la sécurisation complète
+d’un serveur Linux dans un contexte cloud / production.
+
+### Résultats obtenus
+
+- Déploiement automatisé en moins de 5 minutes
+- Sécurisation SSH et firewall
+- Protection anti-bruteforce
+- Monitoring actif
+- Environnement Docker opérationnel
+
+---
+
+## 🧪 Démonstration rapide
+
+Après installation :
+
+1. Connexion SSH sécurisée
+2. Services actifs vérifiés
+3. Conteneur Docker fonctionnel
+4. Monitoring disponible
 
 ✅ Fonctionnalités principales
 Sécurisation complète du serveur
